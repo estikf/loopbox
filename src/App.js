@@ -18,7 +18,11 @@ function App() {
     setIsStarted(true)
   }
 
-  const startPlayer = (player,volume=1) => {
+  const stopPlayer = (player) => {
+    player.unsync().stop()
+  }
+
+  const startPlayer = (title, player,parent,volume=1) => {
     if(!isStarted){
       startContext()
       Transport.start()
@@ -27,12 +31,13 @@ function App() {
     player.loop = true
     player.volume.value = volume
     player.sync().start(Transport.blockTime)
-  }
 
-  const stopPlayer = (player) => {
-    player.unsync().stop()
+    // stop other players in the group
+    let group = players.filter(i => i.name === parent)
+    group[0].buttons.filter(i => i.title !== title).forEach(i => {
+      stopPlayer(i.player)
+    })
   }
-
 
 
   return (
@@ -41,7 +46,7 @@ function App() {
         <Container maxWidth="md" style={{"height":"100%"}}>
             <PlayersTable
                 players={players}
-                startPlayer={(player,volume) => startPlayer(player, volume)}
+                startPlayer={(title, player,parent, volume) => startPlayer(title, player, parent, volume)}
                 stopPlayer={(player) => stopPlayer(player)}
             />
         </Container>

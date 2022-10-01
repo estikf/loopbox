@@ -17,8 +17,8 @@ code {
 .App {
   height: calc(100vh);
   background-color: #000000;
-  background-image: url("https://images8.alphacoders.com/118/thumb-1920-1188016.jpg");
+  background-image: url("https://www.nasa.gov/sites/default/files/thumbnails/image/main_image_star-forming_region_carina_nircam_final-5mb.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 100% 100%;
   background-position: 50% 50%;
 }

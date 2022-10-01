@@ -21,76 +21,136 @@ import fx3 from '../media/fx3.wav'
 import fx4 from '../media/fx4.wav'
 
 export const players = [
-    [
-        {
-            title: "kick1",
-            player: new Tone.Player(kick1).toDestination(),
-        },
-        {
-            title: "kick2",
-            player: new Tone.Player(kick2).toDestination(),
-        },
-        {
-            title: "kick3",
-            player: new Tone.Player(kick3).toDestination(),
-        },
-        {
-            title: "kick4",
-            player: new Tone.Player(kick4).toDestination(),
-        },
-    ],
-    [
-        {
-            title: "top1",
-            player: new Tone.Player(top1).toDestination(),
-        },
-        {
-            title: "top2",
-            player: new Tone.Player(top2).toDestination(),
-        },
-        {
-            title: "top3",
-            player: new Tone.Player(top3).toDestination(),
-        },
-        {
-            title: "top4",
-            player: new Tone.Player(top4).toDestination(),
-        },
-    ],
-    [
-        {
-            title: "synth1",
-            player: new Tone.Player(synth1).toDestination(),
-        },
-        {
-            title: "synth2",
-            player: new Tone.Player(synth2).toDestination(),
-        },
-        {
-            title: "synth3",
-            player: new Tone.Player(synth3).toDestination(),
-        },
-        {
-            title: "synth4",
-            player: new Tone.Player(synth4).toDestination(),
-        },
-    ],
-    [
-        {
-            title: "fx1",
-            player: new Tone.Player(fx1).toDestination(),
-        },
-        {
-            title: "fx2",
-            player: new Tone.Player(fx2).toDestination(),
-        },
-        {
-            title: "fx3",
-            player: new Tone.Player(fx3).toDestination(),
-        },
-        {
-            title: "fx4",
-            player: new Tone.Player(fx4).toDestination(),
-        },
-    ],
+    {
+        name:"kick",
+        buttons:[
+            {
+                loop:true,
+                isPlaying:false,
+                title: "kick1",
+                parent:"kick",
+                player: new Tone.Player(kick1).toDestination(),
+            },
+            {
+                loop:true,
+                isPlaying:false,
+                title: "kick2",
+                parent:"kick",
+                player: new Tone.Player(kick2).toDestination(),
+            },
+            {
+                loop:true,
+                isPlaying:false,
+                title: "kick3",
+                parent:"kick",
+                player: new Tone.Player(kick3).toDestination(),
+            },
+            {
+                loop:true,
+                isPlaying:false,
+                title: "kick4",
+                parent:"kick",
+                player: new Tone.Player(kick4).toDestination(),
+            },
+        ]
+    },
+    {
+        name:"top",
+        buttons:[
+            {
+                loop:true,
+                isPlaying:false,
+                title: "top1",
+                parent:"top",
+                player: new Tone.Player(top1).toDestination(),
+            },
+            {
+                loop:true,
+                isPlaying:false,
+                title: "top2",
+                parent:"top",
+                player: new Tone.Player(top2).toDestination(),
+            },
+            {
+                loop:true,
+                isPlaying:false,
+                title: "top3",
+                parent:"top",
+                player: new Tone.Player(top3).toDestination(),
+            },
+            {
+                loop:true,
+                isPlaying:false,
+                title: "top4",
+                parent:"top",
+                player: new Tone.Player(top4).toDestination(),
+            },
+        ]
+    },
+    {
+        name:"synth",
+        buttons:[
+            {
+                loop:true,
+                isPlaying:false,
+                title: "synth1",
+                parent:"synth",
+                player: new Tone.Player(synth1).toDestination()
+            },
+            {
+                loop:true,
+                isPlaying:false,
+                title: "synth2",
+                parent:"synth",
+                player: new Tone.Player(synth2).toDestination()
+            },
+            {
+                loop:true,
+                isPlaying:false,
+                title: "synth3",
+                parent:"synth",
+                player: new Tone.Player(synth3).toDestination()
+            },
+            {
+                loop:true,
+                isPlaying:false,
+                title: "synth4",
+                parent:"synth",
+                player: new Tone.Player(synth4).toDestination()
+            },
+        ]
+    },
+    {
+        name:"fx",
+        buttons:[
+            {
+                loop:false,
+                isPlaying:false,
+                title: "fx1",
+                parent:"fx",
+                player: new Tone.Player(fx1).toDestination(),
+            },
+            {
+                loop:false,
+                isPlaying:false,
+                title: "fx2",
+                parent:"fx",
+                player: new Tone.Player(fx2).toDestination(),
+            },
+            {
+                loop:false,
+                isPlaying:false,
+                title: "fx3",
+                parent:"fx",
+                player: new Tone.Player(fx3).toDestination(),
+            },
+            {
+                loop:false,
+                isPlaying:false,
+                title: "fx4",
+                parent:"fx",
+                player: new Tone.Player(fx4).toDestination(),
+            },
+        ]
+    }
 ];
