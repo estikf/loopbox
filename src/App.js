@@ -1,55 +1,45 @@
 import './App.css';
-import * as tone from 'tone'
-import { useState } from 'react';
 import { CustomParticles } from './components/CustomParticles';
 import { PlayersTable } from './components/PlayersTable';
-import { players } from './components/players';
 import { Container } from '@mui/system';
+import { useSelector } from 'react-redux';
+import { Grid, Typography } from '@mui/material';
 
-const Tone = tone
-const Transport = Tone.Transport
+import kick234 from './media/kick1.wav'
+import * as Tone from 'tone'
+import { useEffect, useState } from 'react';
 
 function App() {
+  const context = useSelector(state => state.core.context)
+  const players = useSelector(state => state.core.players)
+  
+  const [isLoaded, setIsLoaded] = useState(false)
 
-  const [isStarted, setIsStarted] = useState(false)
-
-  const startContext = () => {
-    Tone.start()
-    setIsStarted(true)
-  }
-
-  const stopPlayer = (player) => {
-    player.unsync().stop()
-  }
-
-  const startPlayer = (title, player,parent,volume=1) => {
-    if(!isStarted){
-      startContext()
-      Transport.start()
-    }
-
-    player.loop = true
-    player.volume.value = volume
-    player.sync().start(Transport.blockTime)
-
-    // stop other players in the group
-    let group = players.filter(i => i.name === parent)
-    group[0].buttons.filter(i => i.title !== title).forEach(i => {
-      stopPlayer(i.player)
-    })
-  }
+  useEffect(() => {
+    new Tone.Player({url:kick234,onload:() => setIsLoaded("loaded")})
+  },[])
 
 
   return (
     <div className="App">
-        <CustomParticles/>
-        <Container maxWidth="md" style={{"height":"100%"}}>
-            <PlayersTable
-                players={players}
-                startPlayer={(title, player,parent, volume) => startPlayer(title, player, parent, volume)}
-                stopPlayer={(player) => stopPlayer(player)}
-            />
+      <CustomParticles/>
+      {
+        isLoaded ?
+        <Container maxWidth="xl" style={{"height":"100%"}}>
+          <Grid container justifyContent={"center"} alignItems="center" height={"100%"}>
+            <Grid item lg={8} md={10} xs={12}>
+              <PlayersTable
+                  players={players}
+                  isContextStarted={context.isContextStarted}
+              />
+            </Grid>
+          </Grid>
         </Container>
+        : 
+        <Typography variant="h4" color="white">
+            Loading assets...
+        </Typography>
+      }
     </div>
   );
 }

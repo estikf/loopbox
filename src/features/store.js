@@ -1,5 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
+import coreReducer from '../features/coreSlice'
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    core: coreReducer
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware()
 })
