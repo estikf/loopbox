@@ -2,7 +2,6 @@ import "./App.css";
 import { CustomParticles } from "./components/CustomParticles";
 import { PlayersTable } from "./components/PlayersTable";
 import { Container } from "@mui/system";
-import { useSelector } from "react-redux";
 import { Grid, Typography } from "@mui/material";
 import { usePlayers } from "./helpers/usePlayers";
 

@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { PlayerButton } from './PlayerButton'
 import * as Tone from 'tone'
 import { useDispatch, useSelector } from 'react-redux'
@@ -12,16 +12,15 @@ export const PlayersTable = ({players}) => {
     
     const dispatch = useDispatch()
     const context = useSelector(state => state.core.context)
-
-    let playerQueue = []
-
+    const playerQueue = useRef([])
+    
     useEffect(() => {
         Transport.scheduleRepeat((time) => {
-            if(playerQueue.length > 0){
-                playerQueue.forEach(i => i())
+            if(playerQueue.current.length > 0){
+                playerQueue.current.forEach(i => i())
             }
-            playerQueue = []
-            },"00:4")
+            playerQueue.current = []
+        },"00:4")
     },[])
     
     const startContext = () => {
@@ -60,27 +59,44 @@ export const PlayersTable = ({players}) => {
     }
 
     const addToQueue = (callback, title) => {
-        callback && playerQueue.push(callback)
+        callback && playerQueue.current.push(callback)
         dispatch(queuedButtonState({title:title}))
     }
 
+    const chunkArray = (array, size) => {
+        let result = []
+        for (let i = 0; i < array.length; i += size) {
+          let chunk = array.slice(i, i + size)
+          result.push(chunk)
+        }
+        return result
+      }
+
 
   return (
-        <Grid container justifyContent={"center"} flexDirection="row" width={"100%"} height={"100%"}>
-            {players && players.map((player,index) => 
-                <Grid item key={index} xs={3}>
-                    <PlayerButton
-                        key={index}
-                        title={player.title}
-                        parent={player.parent}
-                        context={context}
-                        startContext={() => startContext()}
-                        addToQueue = {(cb) => addToQueue(cb,player.title)}
-                        startPlayer={() => startPlayer(player.parent, player.title)}
-                        stopPlayer={() => stopPlayer(player.title)}
-                    />
-                </Grid>
-            )}
+        <Grid container alignItems={"center"} justifyContent={"center"} flexDirection="row">
+            {
+                chunkArray(players,4).map(((group, index) => 
+                    <Grid item xs={3} key={index} width={"100%"} height={"100%"} className={((index+1) !== chunkArray(players,4).length) && "player-group"}>
+                        <Grid container alignItems={"center"} justifyContent={"center"} flexDirection="column">
+                            {group && group.map((player,index) => 
+                                <Grid item xs={12} key={index}>
+                                    <PlayerButton
+                                        key={index}
+                                        title={player.title}
+                                        parent={player.parent}
+                                        context={context}
+                                        startContext={() => startContext()}
+                                        addToQueue = {(cb) => addToQueue(cb,player.title)}
+                                        startPlayer={() => startPlayer(player.parent, player.title)}
+                                        stopPlayer={() => stopPlayer(player.title)}
+                                    />
+                                </Grid>
+                            )}
+                        </Grid>
+                    </Grid>
+                ))
+            }
         </Grid>
   )
 }

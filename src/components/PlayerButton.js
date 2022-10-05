@@ -1,4 +1,4 @@
-import {Button, CircularProgress, Grid, IconButton, Typography} from '@mui/material';
+import {Grid, IconButton, Typography} from '@mui/material';
 import {Pending, PlayCircle, StopCircle} from '@mui/icons-material/';
 import { useSelector } from 'react-redux';
 
@@ -29,19 +29,21 @@ export const PlayerButton = ({context, startContext, startPlayer, addToQueue, st
           return <StopCircle color="warning" fontSize='3rem' />
         case "stopped":
           return <PlayCircle color="secondary" fontSize="3rem" />
+        default:
+          return "test"
       }
     }
 
   return (
     <Grid container flexDirection={"column"} justifyContent={"center"}>
       <Grid item>
-        <Button
-            style={{fontSize:"3rem", padding:"0px"}}
+        <IconButton
+            style={{fontSize:"3rem"}}
             onClick={() => handleOnClick()}
             disabled={button.status === "queued"}
         >
             {renderButtonStatus()}
-        </Button>
+        </IconButton>
       </Grid>
       <Grid item>
         <Typography variant="overline" color="gray" >
