@@ -1,10 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import * as tone from 'tone'
-
-import { loops } from '../components/loops'
-
-const Tone = tone
-const Transport = Tone.Transport
 
 const initialState = {
     context:{
@@ -12,191 +6,119 @@ const initialState = {
       isStarted:false
     },
     players: [
-      {
-          name:"kick",
-          buttons:[
-              {
-                  loop:true,
-                  isPlaying:false,
-                  title: "kick1",
-                  parent:"kick",
-              },
-              {
-                  loop:true,
-                  isPlaying:false,
-                  title: "kick2",
-                  parent:"kick",
-              },
-              {
-                  loop:true,
-                  isPlaying:false,
-                  title: "kick3",
-                  parent:"kick",
-              },
-              {
-                  loop:true,
-                  isPlaying:false,
-                  title: "kick4",
-                  parent:"kick",
-              },
-          ]
-      },
-      {
-          name:"top",
-          buttons:[
-              {
-                  loop:true,
-                  isPlaying:false,
-                  title: "top1",
-                  parent:"top",
-             },
-              {
-                  loop:true,
-                  isPlaying:false,
-                  title: "top2",
-                  parent:"top",
-             },
-              {
-                  loop:true,
-                  isPlaying:false,
-                  title: "top3",
-                  parent:"top",
-             },
-              {
-                  loop:true,
-                  isPlaying:false,
-                  title: "top4",
-                  parent:"top",
-             },
-          ]
-      },
-      {
-          name:"synth",
-          buttons:[
-              {
-                  loop:true,
-                  isPlaying:false,
-                  title: "synth1",
-                  parent:"synth",
-              },
-              {
-                  loop:true,
-                  isPlaying:false,
-                  title: "synth2",
-                  parent:"synth",
-              },
-              {
-                  loop:true,
-                  isPlaying:false,
-                  title: "synth3",
-                  parent:"synth",
-              },
-              {
-                  loop:true,
-                  isPlaying:false,
-                  title: "synth4",
-                  parent:"synth",
-              },
-          ]
-      },
-      {
-          name:"brass",
-          buttons:[
-              {
-                  loop:true,
-                  isPlaying:false,
-                  title: "brass1",
-                  parent:"brass",
-            },
-              {
-                  loop:true,
-                  isPlaying:false,
-                  title: "brass2",
-                  parent:"brass",
-            },
-              {
-                  loop:true,
-                  isPlaying:false,
-                  title: "brass3",
-                  parent:"brass",
-            },
-              {
-                  loop:true,
-                  isPlaying:false,
-                  title: "brass4",
-                  parent:"brass",
-            },
-          ]
+        {
+            title: "kick1",
+            parent: "kick",
+            status:"stopped"
         },
         {
-            name:"fx",
-            buttons:[
-                {
-                    loop:true,
-                    isPlaying:false,
-                    title: "fx1",
-                    parent:"fx",
-                },
-            ]
-        }
-  ]
+            title: "kick2",
+            parent: "kick",
+            status:"stopped"
+        },
+        {
+            title: "kick3",
+            parent: "kick",
+            status:"stopped"
+        },
+        {
+            title: "kick4",
+            parent: "kick",
+            status:"stopped"
+        },
+        {
+            title: "top1",
+            parent: "top",        
+            status:"stopped"
+        },
+        {
+            title: "top2",
+            parent: "top",        
+            status:"stopped"
+        },
+        {
+            title: "top3",
+            parent: "top",        
+            status:"stopped"
+        },
+        {
+            title: "top4",
+            parent: "top",        
+            status:"stopped"
+        },
+        {
+            title: "synth1",
+            parent: "synth",
+            status:"stopped"
+        },
+        {
+            title: "synth2",
+            parent: "synth",
+            status:"stopped"
+        },
+        {
+            title: "synth3",
+            parent: "synth",
+            status:"stopped"
+        },
+        {
+            title: "synth4",
+            parent: "synth",
+            status:"stopped"
+        },
+        {
+            title: "brass1",
+            parent: "brass",
+            status:"stopped"
+        },
+        {
+            title: "brass2",
+            parent: "brass",
+            status:"stopped"
+        },
+        {
+            title: "brass3",
+            parent: "brass",
+            status:"stopped"
+        },
+        {
+            title: "brass4",
+            parent: "brass",
+            status:"stopped"
+        },
+    ]
 }
 
 export const coreSlice = createSlice({
   name: 'core',
   initialState,
   reducers: {
-    setIsLoaded: (state) => {
-        state.context.isLoaded = true
+    startContext: (state,action) => {
+        state.context.isStarted = true
     },
-    startContext: (state) => {
-      Tone.start()
-      Transport.start()
-      state.context.isStarted = true
+    startButtonState: (state, action) => {
+        // update the state of the button as playing
+        state.players
+            .find(i => i.title === action.payload.title).status = "playing"
+        // update others buttons in the group as "stopped"
+        state.players
+            .filter(i => i.parent === action.payload.parent)
+            .filter(i => i.title !== action.payload.title)
+            .forEach(i => i.status = "stopped")
     },
-    startPlayer: (state, action) => {
-
-    const group = state.players.filter(i => i.name === action.payload.player.parent)[0]
-    const button = group.buttons.filter(i => i.title === action.payload.player.title)[0]
-
-    button.isPlaying = true
-
-    const player = loops.filter(i => i.title === action.payload.player.title)[0].loop
-    // start the player
-    player.loop = button.loop
-    player.volume.value = -5
-    player.sync().start(Transport.blockTime)
-
-
-    // set state of other players to false
-    group
-        .buttons
-        .filter(i => i.title !== action.payload.player.title)
-        .forEach(i => {
-            i.isPlaying = false
-        })
-
-    // stop other loops
-    loops
-        .filter(i => i.parent === action.payload.player.parent)
-        .filter(i => i.title !== action.payload.player.title)
-        .forEach(i => {
-            i.loop.unsync().stop()
-        })
+    stopButtonState: (state, action) => {
+        // update the started button as true
+        state.players
+            .find(i => i.title === action.payload.title).status = "stopped"
     },
-    stopPlayer: (state, action) => {
-
-    let group = state.players.filter(i => i.name === action.payload.player.parent)[0]
-    let button = group.buttons.filter(i => i.title === action.payload.player.title)[0]
-    const player = loops.filter(i => i.title === action.payload.player.title)[0].loop
-
-    player.unsync().stop()
-    button.isPlaying = false
+    queuedButtonState: (state,action) => {
+        state.players
+            .find(i => i.title === action.payload.title).status = "queued"
     }
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { startContext, startPlayer, stopPlayer, setIsLoaded } = coreSlice.actions
+export const { startButtonState, stopButtonState, queuedButtonState } = coreSlice.actions
 
 export default coreSlice.reducer

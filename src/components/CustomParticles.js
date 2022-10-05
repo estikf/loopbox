@@ -17,10 +17,10 @@ export const CustomParticles = () => {
             options={{
                 "particles": {
                   "number": {
-                    "value": 20,
+                    "value": 30,
                     "density": {
                       "enable": false,
-                      "value_area": 50
+                      "value_area": 10
                     }
                   },
                   "color": {
@@ -52,13 +52,13 @@ export const CustomParticles = () => {
                     }
                   },
                   "size": {
-                    "value": 3,
+                    "value": 2,
                     "random": true,
                     "anim": {
                       "enable": true,
                       "speed": 0.5,
-                      "size_min": 1,
-                      "sync": false
+                      "size_min": 0.2,
+                      "sync": true
                     }
                   },
                   "line_linked": {
@@ -91,7 +91,7 @@ export const CustomParticles = () => {
                       "mode": "repulse"
                     },
                     "onclick": {
-                      "enable": true,
+                      "enable": false,
                       "mode": "repulse"
                     },
                     "resize": true

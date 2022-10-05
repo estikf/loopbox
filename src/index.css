@@ -17,13 +17,7 @@ code {
 .App {
   height: calc(100vh);
   background-color: #000000;
-  background-image: url("https://wallpapercrafter.com/desktop/87115-lines-simple-background-abstract-hd-4k-dark-black-dribbble-oled.jpg");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 100% 50%;
   background-position: 50% 50%;
-}
-
-.players-table {
-  border: 5px solid rgb(51 51 51 / 41%);
-  border-radius: 5%;
 }

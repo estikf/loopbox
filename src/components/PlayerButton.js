@@ -1,34 +1,47 @@
-import {Grid, IconButton, Typography} from '@mui/material';
-import {PlayCircle, StopCircle} from '@mui/icons-material/';
-import { useDispatch } from 'react-redux';
-import { startContext, startPlayer, stopPlayer } from '../features/coreSlice';
+import {Button, CircularProgress, Grid, IconButton, Typography} from '@mui/material';
+import {Pending, PlayCircle, StopCircle} from '@mui/icons-material/';
+import { useSelector } from 'react-redux';
 
-export const PlayerButton = ({isContextStarted, title, parent, isPlaying}) => {
+export const PlayerButton = ({context, startContext, startPlayer, addToQueue, stopPlayer, parent, title}) => { 
 
-    const dispatch = useDispatch()
+    const button = useSelector(state => state.core.players.find(i => i.title === title))
 
     const handleOnClick = () => {
-
-      if(!isContextStarted){
-        dispatch(startContext())
+      if(!context.isPlaying){
+        startContext()
       }
 
-      if(isPlaying){
-        dispatch(stopPlayer({player:{title:title,parent:parent}}))
+      if(button.status === "queued"){return;}
+
+      if(button.status === "stopped"){
+        addToQueue(() => startPlayer())
+        
       }else{
-        dispatch(startPlayer({player:{title:title, parent:parent}}))
+        addToQueue(() => stopPlayer())
+      }
+    }
+
+    const renderButtonStatus = () => {
+      switch (button.status) {
+        case "queued":
+          return <Pending style={{color:"grey"}} fontSize="3rem" />
+        case "playing":
+          return <StopCircle color="warning" fontSize='3rem' />
+        case "stopped":
+          return <PlayCircle color="secondary" fontSize="3rem" />
       }
     }
 
   return (
-    <Grid container justifyContent={"center"}>
+    <Grid container flexDirection={"column"} justifyContent={"center"}>
       <Grid item>
-        <IconButton
+        <Button
             style={{fontSize:"3rem", padding:"0px"}}
             onClick={() => handleOnClick()}
+            disabled={button.status === "queued"}
         >
-            {isPlaying ? <StopCircle color="primary" fontSize='3rem'/> : <PlayCircle color="secondary" fontSize='3rem'/>}
-        </IconButton>
+            {renderButtonStatus()}
+        </Button>
       </Grid>
       <Grid item>
         <Typography variant="overline" color="gray" >
