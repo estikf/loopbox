@@ -14,6 +14,7 @@ export const PlayersTable = ({players}) => {
     const context = useSelector(state => state.core.context)
     const playerQueue = useRef([])
     
+    
     useEffect(() => {
         Transport.scheduleRepeat((time) => {
             if(playerQueue.current.length > 0){
@@ -24,13 +25,17 @@ export const PlayersTable = ({players}) => {
     },[])
     
     const startContext = async () => {
-        Tone.start()
+        await Tone.start()
         Transport.start()
     }
 
     const startPlayer = async (parent, title) => {
         if(!context.isStarted){
             startContext()
+        }
+
+        if (Tone.context.state !== 'running') {
+            Tone.context.resume();
         }
 
         const group = players.filter(i => i.parent === parent)

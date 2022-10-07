@@ -24,7 +24,7 @@ import { useMemo, useState } from 'react'
 
 export const usePlayers = () => {
 
-    const [isLoaded, setIsLoaded] = useState(false)
+    const [loadingProgress, setLoadingProgress] = useState(0)
     
 
     const players = useMemo(() => [
@@ -32,101 +32,101 @@ export const usePlayers = () => {
             title: "kick1",
             parent: "kick",
             isPlaying:false,
-            loop: new Tone.Player(kick1).toDestination(),
+            loop: new Tone.Player({url:kick1, onload:() => setLoadingProgress(state => state + 1)}).toDestination(),
         },
         {
             title: "kick2",
             parent: "kick",
             isPlaying:false,
-            loop: new Tone.Player(kick2).toDestination(),
+            loop: new Tone.Player({url:kick2, onload:() => setLoadingProgress(state => state + 1)}).toDestination(),
         },
         {
             title: "kick3",
             parent: "kick",
             isPlaying:false,
-            loop: new Tone.Player(kick3).toDestination(),
+            loop: new Tone.Player({url:kick3, onload:() => setLoadingProgress(state => state + 1)}).toDestination(),
         },
         {
             title: "kick4",
             parent: "kick",
             isPlaying:false,
-            loop: new Tone.Player(kick4).toDestination(),
+            loop: new Tone.Player({url:kick4, onload:() => setLoadingProgress(state => state + 1)}).toDestination(),
         },
         {
             title: "fx1",
             parent: "fx",
             isPlaying:false,
-            loop: new Tone.Player(fx1).toDestination(),
+            loop: new Tone.Player({url:fx1, onload:() => setLoadingProgress(state => state + 1)}).toDestination(),
         },
         {
             title: "fx2",
             parent: "fx",
             isPlaying:false,
-            loop: new Tone.Player(fx2).toDestination(),
+            loop: new Tone.Player({url:fx2, onload:() => setLoadingProgress(state => state + 1)}).toDestination(),
         },
         {
             title: "fx3",
             parent: "fx",
             isPlaying:false,
-            loop: new Tone.Player(fx3).toDestination(),
+            loop: new Tone.Player({url:fx3, onload:() => setLoadingProgress(state => state + 1)}).toDestination(),
         },
         {
             title: "fx4",
             parent: "fx",
             isPlaying:false,
-            loop: new Tone.Player(fx4).toDestination(),
+            loop: new Tone.Player({url:fx4, onload:() => setLoadingProgress(state => state + 1)}).toDestination(),
         },
         {
             title: "synth1",
             parent: "synth",
             isPlaying:false,
-            loop: new Tone.Player(synth1).toDestination()
+            loop: new Tone.Player({url:synth1, onload:() => setLoadingProgress(state => state + 1)}).toDestination()
         },
         {
             title: "synth2",
             parent: "synth",
             isPlaying:false,
-            loop: new Tone.Player(synth2).toDestination()
+            loop: new Tone.Player({url:synth2, onload:() => setLoadingProgress(state => state + 1)}).toDestination()
         },
         {
             title: "synth3",
             parent: "synth",
             isPlaying:false,
-            loop: new Tone.Player(synth3).toDestination()
+            loop: new Tone.Player({url:synth3, onload:() => setLoadingProgress(state => state + 1)}).toDestination()
         },
         {
             title: "synth4",
             parent: "synth",
             isPlaying:false,
-            loop: new Tone.Player(synth4).toDestination()
+            loop: new Tone.Player({url:synth4, onload:() => setLoadingProgress(state => state + 1)}).toDestination()
         },
         {
             title: "brass1",
             parent: "brass",
             isPlaying:false,
-            loop: new Tone.Player(brass1).toDestination(),
+            loop: new Tone.Player({url:brass1, onload:() => setLoadingProgress(state => state + 1)}).toDestination(),
         },
         {
             title: "brass2",
             parent: "brass",
             isPlaying:false,
-            loop: new Tone.Player(brass2).toDestination(),
+            loop: new Tone.Player({url:brass2, onload:() => setLoadingProgress(state => state + 1)}).toDestination(),
         },
         {
             title: "brass3",
             parent: "brass",
             isPlaying:false,
-            loop: new Tone.Player(brass3).toDestination(),
+            loop: new Tone.Player({url:brass3, onload:() => setLoadingProgress(state => state + 1)}).toDestination(),
         },
         {
             title: "brass4",
             parent: "brass",
             isPlaying:false,
-            loop: new Tone.Player({url:brass4, onload:() => setIsLoaded(true)}).toDestination()
+            loop: new Tone.Player({url:brass4, onload:() => setLoadingProgress(state => state + 1)}).toDestination()
         },
     ],[])
     
-    return [players, isLoaded]
+    return [players, loadingProgress]
 }
 
 

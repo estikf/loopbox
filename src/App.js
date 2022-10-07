@@ -2,13 +2,13 @@ import "./App.css";
 import { CustomParticles } from "./components/CustomParticles";
 import { PlayersTable } from "./components/PlayersTable";
 import { Container } from "@mui/system";
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import { usePlayers } from "./helpers/usePlayers";
+import { LoadingBar } from "./components/LoadingBar";
 
 function App() {
-
-    const [players, isLoaded] = usePlayers()
-
+    const [players, loadingProgress] = usePlayers();
+    
     return (
         <div className="App">
             <CustomParticles />
@@ -20,14 +20,12 @@ function App() {
                     height={"100%"}
                 >
                     <Grid item lg={8} md={10} xs={12}>
-                        {isLoaded ? (
-                            <PlayersTable
-                                players={players}
-                            />
+                        {loadingProgress === players.length ? (
+                            <PlayersTable players={players} />
                         ) : (
-                            <Typography variant="h5" color="gray">
-                                Loading...
-                            </Typography>
+                            <LoadingBar
+                                loadingProgress={(loadingProgress * 100) / players.length}
+                            />
                         )}
                     </Grid>
                 </Grid>
