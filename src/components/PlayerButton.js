@@ -1,5 +1,5 @@
-import {Box, Button, Grid, IconButton, Typography} from '@mui/material';
-import {Pending, PlayCircle, StopCircle} from '@mui/icons-material/';
+import {Box, Button,Typography} from '@mui/material';
+import {PlayCircle, StopCircle} from '@mui/icons-material/';
 import { useSelector } from 'react-redux';
 
 export const PlayerButton = ({context, startContext, startPlayer, addToQueue, stopPlayer, parent, title}) => { 
@@ -39,6 +39,8 @@ export const PlayerButton = ({context, startContext, startPlayer, addToQueue, st
         case "playing":
           return "player-started"
         case "stopped":
+          return "player-stopped"
+        default:
           return "player-stopped"
       }
     }
