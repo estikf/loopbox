@@ -10,10 +10,10 @@ import synth2 from '../media/synth2.wav'
 import synth3 from '../media/synth3.wav'
 import synth4 from '../media/synth4.wav'
 
-import top1 from '../media/top1.wav'
-import top2 from '../media/top2.wav'
-import top3 from '../media/top3.wav'
-import top4 from '../media/top4.wav'
+import fx1 from '../media/fx1.wav'
+import fx2 from '../media/fx2.wav'
+import fx3 from '../media/fx3.wav'
+import fx4 from '../media/fx4.wav'
 
 import brass1 from '../media/brass1.wav'
 import brass2 from '../media/brass2.wav'
@@ -53,28 +53,28 @@ export const usePlayers = () => {
             loop: new Tone.Player(kick4).toDestination(),
         },
         {
-            title: "top1",
-            parent: "top",
+            title: "fx1",
+            parent: "fx",
             isPlaying:false,
-            loop: new Tone.Player(top1).toDestination(),
+            loop: new Tone.Player(fx1).toDestination(),
         },
         {
-            title: "top2",
-            parent: "top",
+            title: "fx2",
+            parent: "fx",
             isPlaying:false,
-            loop: new Tone.Player(top2).toDestination(),
+            loop: new Tone.Player(fx2).toDestination(),
         },
         {
-            title: "top3",
-            parent: "top",
+            title: "fx3",
+            parent: "fx",
             isPlaying:false,
-            loop: new Tone.Player(top3).toDestination(),
+            loop: new Tone.Player(fx3).toDestination(),
         },
         {
-            title: "top4",
-            parent: "top",
+            title: "fx4",
+            parent: "fx",
             isPlaying:false,
-            loop: new Tone.Player(top4).toDestination(),
+            loop: new Tone.Player(fx4).toDestination(),
         },
         {
             title: "synth1",

@@ -23,12 +23,12 @@ export const PlayersTable = ({players}) => {
         },"00:4")
     },[])
     
-    const startContext = () => {
+    const startContext = async () => {
         Tone.start()
         Transport.start()
     }
 
-    const startPlayer = (parent, title) => {
+    const startPlayer = async (parent, title) => {
         if(!context.isStarted){
             startContext()
         }
@@ -52,15 +52,15 @@ export const PlayersTable = ({players}) => {
         dispatch(startButtonState({parent:parent,title:title}))
     }
 
-    const stopPlayer = (title) => {
+    const stopPlayer = async (title) => {
         const button = players.find(i => i.title === title).loop
-        button.unsync().stop()
-        dispatch(stopButtonState({title:title}))
+        await button.unsync().stop()
+        await dispatch(stopButtonState({title:title}))
     }
 
-    const addToQueue = (callback, title) => {
-        callback && playerQueue.current.push(callback)
-        dispatch(queuedButtonState({title:title}))
+    const addToQueue = async (callback, title) => {
+        await callback && playerQueue.current.push(callback)
+        await dispatch(queuedButtonState({title:title}))
     }
 
     const chunkArray = (array, size) => {
@@ -74,28 +74,25 @@ export const PlayersTable = ({players}) => {
 
 
   return (
-        <Grid container alignItems={"center"} justifyContent={"center"} flexDirection="row">
-            {
-                chunkArray(players,4).map(((group, index) => 
-                    <Grid item xs={3} key={index} width={"100%"} height={"100%"} className={((index+1) !== chunkArray(players,4).length) && "player-group"}>
-                        <Grid container alignItems={"center"} justifyContent={"center"} flexDirection="column">
-                            {group && group.map((player,index) => 
-                                <Grid item xs={12} key={index}>
-                                    <PlayerButton
-                                        key={index}
-                                        title={player.title}
-                                        parent={player.parent}
-                                        context={context}
-                                        startContext={() => startContext()}
-                                        addToQueue = {(cb) => addToQueue(cb,player.title)}
-                                        startPlayer={() => startPlayer(player.parent, player.title)}
-                                        stopPlayer={() => stopPlayer(player.title)}
-                                    />
-                                </Grid>
-                            )}
-                        </Grid>
+        <Grid container spacing={2} alignItems={"center"} justifyContent={"center"} flexDirection="row">
+            {chunkArray(players,4).map(((group, index) => 
+                <Grid item key={index}>
+                    <Grid container spacing={2} alignItems={"center"} justifyContent={"center"} flexDirection="column">
+                        {group && group.map((player,index) => 
+                            <Grid item xs={12} key={index}>
+                                <PlayerButton
+                                    title={player.title}
+                                    parent={player.parent}
+                                    context={context}
+                                    startContext={() => startContext()}
+                                    addToQueue = {(cb) => addToQueue(cb,player.title)}
+                                    startPlayer={() => startPlayer(player.parent, player.title)}
+                                    stopPlayer={() => stopPlayer(player.title)}
+                                />
+                            </Grid>
+                        )}
                     </Grid>
-                ))
+                </Grid>))
             }
         </Grid>
   )

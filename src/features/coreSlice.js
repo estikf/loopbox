@@ -27,23 +27,23 @@ const initialState = {
             status:"stopped"
         },
         {
-            title: "top1",
-            parent: "top",        
+            title: "fx1",
+            parent: "fx",        
             status:"stopped"
         },
         {
-            title: "top2",
-            parent: "top",        
+            title: "fx2",
+            parent: "fx",        
             status:"stopped"
         },
         {
-            title: "top3",
-            parent: "top",        
+            title: "fx3",
+            parent: "fx",        
             status:"stopped"
         },
         {
-            title: "top4",
-            parent: "top",        
+            title: "fx4",
+            parent: "fx",        
             status:"stopped"
         },
         {

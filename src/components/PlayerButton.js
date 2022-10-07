@@ -1,4 +1,4 @@
-import {Grid, IconButton, Typography} from '@mui/material';
+import {Box, Button, Grid, IconButton, Typography} from '@mui/material';
 import {Pending, PlayCircle, StopCircle} from '@mui/icons-material/';
 import { useSelector } from 'react-redux';
 
@@ -23,34 +23,42 @@ export const PlayerButton = ({context, startContext, startPlayer, addToQueue, st
 
     const renderButtonStatus = () => {
       switch (button.status) {
-        case "queued":
-          return <Pending style={{color:"grey"}} fontSize="3rem" />
         case "playing":
-          return <StopCircle color="warning" fontSize='3rem' />
+          return <StopCircle color="inherit" fontSize='3rem' />
         case "stopped":
-          return <PlayCircle color="secondary" fontSize="3rem" />
+          return <PlayCircle color="inherit" fontSize="3rem" />
         default:
-          return "test"
+          return <PlayCircle color="inherit" fontSize="3rem" />
+      }
+    }
+
+    const renderButtonClassName = () => {
+      switch (button.status) {
+        case "queued":
+          return "player-queued"
+        case "playing":
+          return "player-started"
+        case "stopped":
+          return "player-stopped"
       }
     }
 
   return (
-    <Grid container flexDirection={"column"} justifyContent={"center"}>
-      <Grid item>
-        <IconButton
-            style={{fontSize:"3rem"}}
-            onClick={() => handleOnClick()}
-            disabled={button.status === "queued"}
-        >
-            {renderButtonStatus()}
-        </IconButton>
-      </Grid>
-      <Grid item>
-        <Typography variant="overline" color="gray" >
+    <Button 
+      className={`player-button ${renderButtonClassName()}`}
+      onClick={() => handleOnClick()}
+      disabled={button.status === "queued"}
+      color="inherit"
+    >
+      <Box fontSize={"2.8rem"} position={"absolute"} top="0.4rem">
+        {renderButtonStatus()}
+      </Box>
+      <Box position={"absolute"} bottom="0.4rem">
+        <Typography variant="overline" className="player-text">
           {parent.charAt(0).toUpperCase() + parent.slice(1)}
         </Typography>
-      </Grid>
-    </Grid>
+      </Box>
+    </Button>
     
   )
 }
