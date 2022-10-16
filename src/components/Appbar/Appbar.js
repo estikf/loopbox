@@ -75,7 +75,6 @@ const ResponsiveAppBar = () => {
             variant="h5"
             noWrap
             component="a"
-            href=""
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -85,9 +84,10 @@ const ResponsiveAppBar = () => {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              cursor:"pointer"
             }}
           >
-            <img src="/logo512.png" height={"60px"} alt="img"/>
+            <img src="/logo512.png" height={"60px"} onClick={() => history.push("/")} alt="img"/>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>

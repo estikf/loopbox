@@ -119,16 +119,16 @@
                 "title": "vocal1",
                 "parent": "vocal",
                 "status": "stopped",
-                "startColor":"#5959f5ed",
-                "stopColor":"#2c2c54eb",
+                "startColor":"#da2d68",
+                "stopColor":"#721132",
                 "url": "/media/1/fx3.ogg"
             },
             {
                 "title": "vocal2",
                 "parent": "vocal",
                 "status": "stopped",
-                "startColor":"#5959f5ed",
-                "stopColor":"#2c2c54eb",
+                "startColor":"#da2d68",
+                "stopColor":"#721132",
                 "url": "/media/1/fx4.ogg"
             }
         ]
@@ -254,16 +254,16 @@
                 "title": "pad2",
                 "parent": "pad",
                 "status": "stopped",
-                "startColor":"#5959f5ed",
-                "stopColor":"#2c2c54eb",
+                "startColor":"#da2d68",
+                "stopColor":"#721132",
                 "url": "/media/2/pad2.ogg"
             },
             {
                 "title": "pad1",
                 "parent": "pad",
                 "status": "stopped",
-                "startColor":"#5959f5ed",
-                "stopColor":"#2c2c54eb",
+                "startColor":"#da2d68",
+                "stopColor":"#721132",
                 "url": "/media/2/pad1.ogg"
             }
         ]
