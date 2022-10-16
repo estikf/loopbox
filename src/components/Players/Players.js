@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import React from 'react'
 import { useHistory, useParams } from 'react-router-dom';
 import { usePlayers } from '../../helpers/usePlayers';
@@ -12,7 +12,7 @@ export const Players = () => {
 
     !loopkits[id] && history.push("/")
 
-    const [players, bpm, loadingProgress, category] = usePlayers(id);
+    const [players, bpm, loadingProgress] = usePlayers(id);
 
     return (
         loopkits[id] &&
