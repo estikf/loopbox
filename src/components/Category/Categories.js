@@ -35,7 +35,7 @@ export const Categories = () => {
                             description={
                                 "Feel the summer."
                             }
-                            title={"Sax House"}
+                            title={"House"}
                             imgURL={
                                 "https://ae01.alicdn.com/kf/HTB1yx1ZSXXXXXaIXFXXq6xXFXXX8/MoonEmbassy-Alto-Saksafon-Minyat-r-Ekran-Sax-Modeli-Ger-ek-i-M-zik-Sevgilisi-do-um.jpg_Q90.jpg_.webp"
                             }
