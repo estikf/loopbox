@@ -40,14 +40,14 @@ export const PlayerButton = ({context, startContext, startPlayer, addToQueue, st
             "-moz-animation": "glowing 1000ms infinite",
             "-o-animation": "glowing 1000ms infinite",
             "animation": "glowing 1000ms infinite",
-            "background-color":`${stopColor} !important`
+            "backgroundColor":`${stopColor} !important`
           })
         case "playing":
-          return ({"background-color":`${startColor} !important`})
+          return ({"backgroundColor":`${startColor} !important`})
         case "stopped":
-          return ({"background-color":`${stopColor} !important`})
+          return ({"backgroundColor":`${stopColor} !important`})
         default:
-          return ({"background-color":`${stopColor} !important`})
+          return ({"backgroundColor":`${stopColor} !important`})
       }
     }
 

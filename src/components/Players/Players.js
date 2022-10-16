@@ -21,14 +21,8 @@ export const Players = () => {
             justifyContent={"center"}
             alignItems="center"
             height={"100%"}
-            mb={3}
         >
             <Grid item lg={8} md={10} xs={12}>
-                <Box mb={3}>
-                    <Typography variant="h5" color="white" textAlign={"center"}>
-                        {category}
-                    </Typography>
-                </Box>
                 {players && (loadingProgress ===  players.length) ? (
                     <PlayersTable 
                         bpm={bpm}

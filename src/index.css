@@ -40,10 +40,10 @@ code {
   font-size:3.4rem !important;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   .player-button {
-    width: 6.9rem;
-    height: 6.9rem;
+    width: calc(100vw/4.6); 
+  height: 8rem;
   }
 
   .player-text{
@@ -51,67 +51,39 @@ code {
   }
 
   .button-icon{
-    font-size:3.3rem !important;
+    font-size:3.2rem !important;
   }  
   
 }
 
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 440px) {
   .player-button {
-    width: 6.5rem;
+    width: calc(100vw/4.7);
     height: 6.5rem;
   }
 
   .player-text{
-    font-size:0.8rem !important;
+    font-size:0.7rem !important;
   }
 
   .button-icon{
-    font-size:3.3rem !important;
-  }  
-  
+    font-size:2.5rem !important;
+  }
 }
 
-@media screen and (max-width: 505px) {
+@media screen and (max-width: 380px) {
   .player-button {
-    width: 5rem;
-    height: 7rem;
+    width: calc(100vw/4.9);
+    height: 6.5rem;
   }
 
   .player-text{
-    font-size:0.6rem !important;
+    font-size:0.7rem !important;
   }
 
   .button-icon{
-    font-size:2.6rem !important;
-  }  
-  
-  
-}
-
-@media screen and (max-width: 410px) {
-  .player-button {
-    width: 4rem !important;
-    height: 7rem !important;
+    font-size:2.3rem !important;
   }
-}
-
-@media screen and (max-width: 370px) {
-  .player-button {
-    width: 3.7rem !important;
-    height: 7rem !important;
-  }
-}
-
-@media screen and (max-width: 330px) {
-  .player-button {
-    width: 3.1rem !important;
-    height: 7rem !important;
-  }
-
-  .button-icon{
-    font-size:2.2rem !important;
-  } 
 }
 
 @-webkit-keyframes glowing {

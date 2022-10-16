@@ -1,24 +1,22 @@
 import { Container } from "@mui/system";
 import { Routes } from "./components/Routes";
 import ResponsiveAppBar from "./components/Appbar/Appbar";
+import { Box } from "@mui/material";
 
 function App() {
     return (
-        <div>
+        <Box height="100%">
             <ResponsiveAppBar />
             <Container
-                maxWidth="lg"
+                maxWidth="xl"
                 style={{
                     paddingTop: "64px",
-                    paddingBottom: "2rem",
-                    paddingRight: "2rem",
-                    paddingLeft: "2rem",
-                    height:"100vh"
+                    height:"calc(100vh - 1rem)"
                 }}
             >
                 <Routes />
             </Container>
-        </div>
+        </Box>
     );
 }
 

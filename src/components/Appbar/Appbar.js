@@ -14,7 +14,7 @@ const ResponsiveAppBar = () => {
   const history = useHistory()
 
   return (
-    <AppBar position="fixed" style={{backgroundColor:"transparent", boxShadow:"none"}}>
+    <AppBar position="fixed" style={{backgroundColor:"black", boxShadow:"none", zIndex:1200}}>
       <Container maxWidth="xl" style={{boxShadow:"none"}}>
         <Toolbar disableGutters >
           <Typography

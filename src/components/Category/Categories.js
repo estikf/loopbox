@@ -7,27 +7,18 @@ export const Categories = () => {
         <Grid
             container
             justifyContent={"center"}
-            alignItems="space-around"
+            alignItems="center"
             direction={"row"}
-            spacing={5}
+            height="100%"
+            p={2}
         >
             <Grid item xs={12}>
-                <Grid container alignItems={"center"} justifyContent="center">
-                    <Grid item>
-                        <Typography variant="h4" color="white">
-                            Music Categories
-                        </Typography>
-                    </Grid>
-                </Grid>
-            </Grid>
-            <Grid item xs={12}>
-                <Grid container justifyContent={"center"} spacing={4}>
+                <Grid container justifyContent={"center"} spacing={2}>
                     <Grid
                         item
                         xs={12}
                         sm={6}
                         md={3}
-                        
                     >
                         <CategoryCard
                             // subheader={"Consequatur rerum amet fuga expedita"}

@@ -116,6 +116,7 @@ export const PlayersTable = ({ players, bpm, id }) => {
                         alignItems={"center"}
                         justifyContent={"center"}
                         flexDirection="column"
+                        height={"100%"}
                     >
                         {group &&
                             group.map((player, index) => (
