@@ -1,0 +1,271 @@
+{
+    "1": {
+        "bpm": "124",
+        "category": "Sax House",
+        "loops": [
+            {
+                "title": "kick1",
+                "parent": "kick",
+                "status": "stopped",
+                "startColor":"#eb3a3ad6",
+                "stopColor":"#751919bf",
+                "url": "/media/1/kick1.ogg"
+            },
+            {
+                "title": "kick2",
+                "parent": "kick",
+                "status": "stopped",
+                "startColor":"#eb3a3ad6",
+                "stopColor":"#751919bf",
+                "url": "/media/1/kick2.ogg"
+            },
+            {
+                "title": "kick3",
+                "parent": "kick",
+                "status": "stopped",
+                "startColor":"#eb3a3ad6",
+                "stopColor":"#751919bf",
+                "url": "/media/1/kick3.ogg"
+            },
+            {
+                "title": "kick4",
+                "parent": "kick",
+                "status": "stopped",
+                "startColor":"#eb3a3ad6",
+                "stopColor":"#751919bf",
+                "url": "/media/1/kick4.ogg"
+            },
+            {
+                "title": "piano1",
+                "parent": "piano",
+                "status": "stopped",
+                "startColor":"#5959f5ed",
+                "stopColor":"#2c2c54eb",
+                "url": "/media/1/piano1.ogg"
+            },
+            {
+                "title": "piano2",
+                "parent": "piano",
+                "status": "stopped",
+                "startColor":"#5959f5ed",
+                "stopColor":"#2c2c54eb",
+                "url": "/media/1/piano2.ogg"
+            },
+            {
+                "title": "piano3",
+                "parent": "piano",
+                "status": "stopped",
+                "startColor":"#5959f5ed",
+                "stopColor":"#2c2c54eb",
+                "url": "/media/1/piano3.ogg"
+            },
+            {
+                "title": "piano4",
+                "parent": "piano",
+                "status": "stopped",
+                "startColor":"#5959f5ed",
+                "stopColor":"#2c2c54eb",
+                "url": "/media/1/piano4.ogg"
+            },
+            {
+                "title": "brass1",
+                "parent": "brass",
+                "status": "stopped",
+                "startColor":"#cb892b",
+                "stopColor":"#7c5113c9",
+                "url": "/media/1/brass1.ogg"
+            },
+            {
+                "title": "brass2",
+                "parent": "brass",
+                "status": "stopped",
+                "startColor":"#cb892b",
+                "stopColor":"#7c5113c9",
+                "url": "/media/1/brass2.ogg"
+            },
+            {
+                "title": "brass3",
+                "parent": "brass",
+                "status": "stopped",
+                "startColor":"#cb892b",
+                "stopColor":"#7c5113c9",
+                "url": "/media/1/brass3.ogg"
+            },
+            {
+                "title": "brass4",
+                "parent": "brass",
+                "status": "stopped",
+                "startColor":"#cb892b",
+                "stopColor":"#7c5113c9",
+                "url": "/media/1/brass4.ogg"
+            },
+            {
+                "title": "fx1",
+                "parent": "fx",
+                "status": "stopped",
+                "startColor":"#2caf91",
+                "stopColor":"#166f5bc9",
+                "url": "/media/1/fx1.ogg"
+            },
+            {
+                "title": "fx2",
+                "parent": "fx",
+                "status": "stopped",
+                "startColor":"#2caf91",
+                "stopColor":"#166f5bc9",
+                "url": "/media/1/fx2.ogg"
+            },
+            {
+                "title": "vocal1",
+                "parent": "vocal",
+                "status": "stopped",
+                "startColor":"#5959f5ed",
+                "stopColor":"#2c2c54eb",
+                "url": "/media/1/fx3.ogg"
+            },
+            {
+                "title": "vocal2",
+                "parent": "vocal",
+                "status": "stopped",
+                "startColor":"#5959f5ed",
+                "stopColor":"#2c2c54eb",
+                "url": "/media/1/fx4.ogg"
+            }
+        ]
+    },
+    "2": {
+        "bpm": "128",
+        "category": "Melodic Techno",
+        "loops": [
+            {
+                "title": "kick1",
+                "parent": "kick",
+                "status": "stopped",
+                "startColor":"#eb3a3ad6",
+                "stopColor":"#751919bf",
+                "url": "/media/2/kick1.ogg"
+            },
+            {
+                "title": "kick2",
+                "parent": "kick",
+                "status": "stopped",
+                "startColor":"#eb3a3ad6",
+                "stopColor":"#751919bf",
+                "url": "/media/2/kick2.ogg"
+            },
+            {
+                "title": "kick3",
+                "parent": "kick",
+                "status": "stopped",
+                "startColor":"#eb3a3ad6",
+                "stopColor":"#751919bf",
+                "url": "/media/2/kick3.ogg"
+            },
+            {
+                "title": "kick4",
+                "parent": "kick",
+                "status": "stopped",
+                "startColor":"#eb3a3ad6",
+                "stopColor":"#751919bf",
+                "url": "/media/2/kick4.ogg"
+            },
+            {
+                "title": "bass1",
+                "parent": "bass",
+                "status": "stopped",
+                "startColor":"#5959f5ed",
+                "stopColor":"#2c2c54eb",
+                "url": "/media/2/bass1.ogg"
+            },
+            {
+                "title": "bass2",
+                "parent": "bass",
+                "status": "stopped",
+                "startColor":"#5959f5ed",
+                "stopColor":"#2c2c54eb",
+                "url": "/media/2/bass2.ogg"
+            },
+            {
+                "title": "bass3",
+                "parent": "bass",
+                "status": "stopped",
+                "startColor":"#5959f5ed",
+                "stopColor":"#2c2c54eb",
+                "url": "/media/2/bass3.ogg"
+            },
+            {
+                "title": "bass4",
+                "parent": "bass",
+                "status": "stopped",
+                "startColor":"#5959f5ed",
+                "stopColor":"#2c2c54eb",
+                "url": "/media/2/bass4.ogg"
+            },
+            {
+                "title": "synth1",
+                "parent": "synth",
+                "status": "stopped",
+                "startColor":"#cb892b",
+                "stopColor":"#7c5113c9",
+                "url": "/media/2/synth1.ogg"
+            },
+            {
+                "title": "synth2",
+                "parent": "synth",
+                "status": "stopped",
+                "startColor":"#cb892b",
+                "stopColor":"#7c5113c9",
+                "url": "/media/2/synth2.ogg"
+            },
+            {
+                "title": "synth3",
+                "parent": "synth",
+                "status": "stopped",
+                "startColor":"#cb892b",
+                "stopColor":"#7c5113c9",
+                "url": "/media/2/synth3.ogg"
+            },
+            {
+                "title": "synth4",
+                "parent": "synth",
+                "status": "stopped",
+                "startColor":"#cb892b",
+                "stopColor":"#7c5113c9",
+                "url": "/media/2/synth4.ogg"
+            },
+            {
+                "title": "fx1",
+                "parent": "fx",
+                "status": "stopped",
+                "loopEnd":"00:64",
+                "startColor":"#2caf91",
+                "stopColor":"#166f5bc9",
+                "url": "/media/2/fx1.ogg"
+            },
+            {
+                "title": "fx2",
+                "parent": "fx",
+                "status": "stopped",
+                "startColor":"#2caf91",
+                "stopColor":"#166f5bc9",
+                "url": "/media/2/fx2.ogg"
+            },
+            {
+                "title": "pad2",
+                "parent": "pad",
+                "status": "stopped",
+                "startColor":"#5959f5ed",
+                "stopColor":"#2c2c54eb",
+                "url": "/media/2/pad2.ogg"
+            },
+            {
+                "title": "pad1",
+                "parent": "pad",
+                "status": "stopped",
+                "startColor":"#5959f5ed",
+                "stopColor":"#2c2c54eb",
+                "url": "/media/2/pad1.ogg"
+            }
+        ]
+    }
+}

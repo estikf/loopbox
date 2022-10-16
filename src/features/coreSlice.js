@@ -5,96 +5,18 @@ const initialState = {
       isLoaded:true,
       isStarted:false
     },
-    players: [
-        {
-            title: "kick1",
-            parent: "kick",
-            status:"stopped"
-        },
-        {
-            title: "kick2",
-            parent: "kick",
-            status:"stopped"
-        },
-        {
-            title: "kick3",
-            parent: "kick",
-            status:"stopped"
-        },
-        {
-            title: "kick4",
-            parent: "kick",
-            status:"stopped"
-        },
-        {
-            title: "fx1",
-            parent: "fx",        
-            status:"stopped"
-        },
-        {
-            title: "fx2",
-            parent: "fx",        
-            status:"stopped"
-        },
-        {
-            title: "fx3",
-            parent: "fx",        
-            status:"stopped"
-        },
-        {
-            title: "fx4",
-            parent: "fx",        
-            status:"stopped"
-        },
-        {
-            title: "synth1",
-            parent: "synth",
-            status:"stopped"
-        },
-        {
-            title: "synth2",
-            parent: "synth",
-            status:"stopped"
-        },
-        {
-            title: "synth3",
-            parent: "synth",
-            status:"stopped"
-        },
-        {
-            title: "synth4",
-            parent: "synth",
-            status:"stopped"
-        },
-        {
-            title: "brass1",
-            parent: "brass",
-            status:"stopped"
-        },
-        {
-            title: "brass2",
-            parent: "brass",
-            status:"stopped"
-        },
-        {
-            title: "brass3",
-            parent: "brass",
-            status:"stopped"
-        },
-        {
-            title: "brass4",
-            parent: "brass",
-            status:"stopped"
-        },
-    ]
+    players: []
 }
 
 export const coreSlice = createSlice({
   name: 'core',
   initialState,
   reducers: {
+    loadPlayers: (state, action) => {
+        state.players = action.payload.players
+    },
     startContext: (state,action) => {
-        state.context.isStarted = true
+        state.context.isStarted = false
     },
     startButtonState: (state, action) => {
         // update the state of the button as playing
@@ -114,11 +36,14 @@ export const coreSlice = createSlice({
     queuedButtonState: (state,action) => {
         state.players
             .find(i => i.title === action.payload.title).status = "queued"
+    },
+    resetPlayers: (state,action) => {
+        state.players = initialState.players
     }
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { startButtonState, stopButtonState, queuedButtonState } = coreSlice.actions
+export const { startButtonState, stopButtonState, queuedButtonState, startContext, loadPlayers, resetPlayers } = coreSlice.actions
 
 export default coreSlice.reducer

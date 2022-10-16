@@ -2,7 +2,7 @@ import {Box, Button,Typography} from '@mui/material';
 import {PlayCircle, StopCircle} from '@mui/icons-material/';
 import { useSelector } from 'react-redux';
 
-export const PlayerButton = ({context, startContext, startPlayer, addToQueue, stopPlayer, parent, title}) => { 
+export const PlayerButton = ({context, startContext, startPlayer, addToQueue, stopPlayer, parent, title, startColor, stopColor}) => { 
 
     const button = useSelector(state => state.core.players.find(i => i.title === title))
 
@@ -24,38 +24,45 @@ export const PlayerButton = ({context, startContext, startPlayer, addToQueue, st
     const renderButtonStatus = () => {
       switch (button.status) {
         case "playing":
-          return <StopCircle color="inherit" fontSize='3rem' />
+          return <StopCircle className="button-icon"/>
         case "stopped":
-          return <PlayCircle color="inherit" fontSize="3rem" />
+          return <PlayCircle className="button-icon"/>
         default:
-          return <PlayCircle color="inherit" fontSize="3rem" />
+          return <PlayCircle className="button-icon"/>
       }
     }
 
-    const renderButtonClassName = () => {
+    const renderButtonBgColor = () => {
       switch (button.status) {
         case "queued":
-          return "player-queued"
+          return ({
+            "-webkit-animation": "glowing 1000ms infinite",
+            "-moz-animation": "glowing 1000ms infinite",
+            "-o-animation": "glowing 1000ms infinite",
+            "animation": "glowing 1000ms infinite",
+            "background-color":`${stopColor} !important`
+          })
         case "playing":
-          return "player-started"
+          return ({"background-color":`${startColor} !important`})
         case "stopped":
-          return "player-stopped"
+          return ({"background-color":`${stopColor} !important`})
         default:
-          return "player-stopped"
+          return ({"background-color":`${stopColor} !important`})
       }
     }
 
   return (
     <Button 
-      className={`player-button ${renderButtonClassName()}`}
+      className={"player-button"}
       onClick={() => handleOnClick()}
       disabled={button.status === "queued"}
-      color="inherit"
+      sx={renderButtonBgColor()}
+      color={"inherit"}
     >
-      <Box fontSize={"2.8rem"} position={"absolute"} top="0.4rem">
+      <Box fontSize={"2.8rem"} position={"relative"}>
         {renderButtonStatus()}
       </Box>
-      <Box position={"absolute"} bottom="0.4rem">
+      <Box position={"absolute"} bottom="0.2rem">
         <Typography variant="overline" className="player-text">
           {parent.charAt(0).toUpperCase() + parent.slice(1)}
         </Typography>

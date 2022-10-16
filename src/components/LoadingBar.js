@@ -1,34 +1,38 @@
-import { Grid, LinearProgress, Typography } from "@mui/material";
+import { CircularProgress, Grid, LinearProgress, Typography } from "@mui/material";
+import { Box } from "@mui/system";
 import React from "react";
 
 export const LoadingBar = ({ loadingProgress }) => {
     return (
-        <Grid container spacing={1}>
-            <Grid item xs={10}>
-                <Typography color="wheat">
-                    Loading music...
-                </Typography>
+        <Grid container spacing={3} justifyContent="center" alignItems={"center"}>
+            <Grid item xs={12}>
+                <Box display={"flex"} justifyContent="center" position="relative">
+                    <CircularProgress
+                        variant="determinate"
+                        value={loadingProgress}
+                        color="info"
+                        size={"4rem"}
+                    />
+                    <Box
+                        sx={{
+                        top: 0,
+                        left: 0,
+                        bottom: 0,
+                        right: 0,
+                        position: 'absolute',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        }}
+                    >
+                        <Typography variant="caption" component="div" color="white">
+                            {`${Math.round(loadingProgress)}%`}
+                        </Typography>
+                    </Box>
+                </Box>
             </Grid>
             <Grid item xs={12}>
-                <Grid container alignItems={"center"}>
-                    <Grid item xs={10}>
-                        <LinearProgress
-                            style={{ height: "0.5rem" }}
-                            variant="determinate"
-                            value={loadingProgress}
-                            color="primary"
-                        />
-                    </Grid>
-                    <Grid item xs={2}>
-                        <Typography color="wheat" variant="subtitle2" >
-                            %{loadingProgress.toString()}
-                        </Typography>
-                    </Grid>
-                </Grid>
-                
-            </Grid>
-            <Grid item xs={10}>
-                <Typography color="wheat">
+                <Typography color="wheat" textAlign={"center"}>
                     Use headphones for the best experience.
                 </Typography>
             </Grid>

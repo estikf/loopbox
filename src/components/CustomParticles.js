@@ -12,16 +12,13 @@ export const CustomParticles = () => {
 
     return (
         <Particles
-            id="tsparticles"
+            id="particles"
+            className="particles"
             init={particlesInit}
             options={{
                 "particles": {
                   "number": {
-                    "value": 30,
-                    "density": {
-                      "enable": false,
-                      "value_area": 10
-                    }
+                    "value": 40,
                   },
                   "color": {
                     "value": "#ffffff"
@@ -42,7 +39,7 @@ export const CustomParticles = () => {
                     }
                   },
                   "opacity": {
-                    "value": 1,
+                    "value": 0.3,
                     "random": true,
                     "anim": {
                       "enable": true,
@@ -83,46 +80,6 @@ export const CustomParticles = () => {
                     }
                   }
                 },
-                "interactivity": {
-                  "detect_on": "canvas",
-                  "events": {
-                    "onhover": {
-                      "enable": false,
-                      "mode": "repulse"
-                    },
-                    "onclick": {
-                      "enable": false,
-                      "mode": "repulse"
-                    },
-                    "resize": true
-                  },
-                  "modes": {
-                    "grab": {
-                      "distance": 200,
-                      "line_linked": {
-                        "opacity": 1
-                      }
-                    },
-                    "bubble": {
-                      "distance": 400,
-                      "size": 40,
-                      "duration": 2,
-                      "opacity": 8,
-                      "speed": 3
-                    },
-                    "repulse": {
-                      "distance": 340.839926962873,
-                      "duration": 0.4
-                    },
-                    "push": {
-                      "particles_nb": 4
-                    },
-                    "remove": {
-                      "particles_nb": 2
-                    }
-                  }
-                },
-                "retina_detect": false
               }}
         />
     );
