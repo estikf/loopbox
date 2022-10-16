@@ -1,7 +1,5 @@
 import {
     Card,
-    CardContent,
-    CardHeader,
     CardMedia,
     Typography,
     useTheme,

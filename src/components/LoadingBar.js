@@ -1,4 +1,4 @@
-import { CircularProgress, Grid, LinearProgress, Typography } from "@mui/material";
+import { CircularProgress, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 
