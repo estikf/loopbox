@@ -36,9 +36,9 @@ export const PlayerButton = ({context, startContext, startPlayer, addToQueue, st
       switch (button.status) {
         case "queued":
           return ({
-            "-webkit-animation": "glowing 1000ms infinite",
-            "-moz-animation": "glowing 1000ms infinite",
-            "-o-animation": "glowing 1000ms infinite",
+            "WebkitAnimation": "glowing 1000ms infinite",
+            "MozAnimation": "glowing 1000ms infinite",
+            "Oanimation": "glowing 1000ms infinite",
             "animation": "glowing 1000ms infinite",
             "backgroundColor":`${stopColor} !important`
           })
