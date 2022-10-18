@@ -9,7 +9,7 @@
                 "status": "stopped",
                 "startColor":"#eb3a3ad6",
                 "stopColor":"#751919bf",
-                "url": "/media/1/kick1.ogg"
+                "url": "/media/1/kick1.mp3"
             },
             {
                 "title": "kick2",
@@ -17,7 +17,7 @@
                 "status": "stopped",
                 "startColor":"#eb3a3ad6",
                 "stopColor":"#751919bf",
-                "url": "/media/1/kick2.ogg"
+                "url": "/media/1/kick2.mp3"
             },
             {
                 "title": "kick3",
@@ -25,7 +25,7 @@
                 "status": "stopped",
                 "startColor":"#eb3a3ad6",
                 "stopColor":"#751919bf",
-                "url": "/media/1/kick3.ogg"
+                "url": "/media/1/kick3.mp3"
             },
             {
                 "title": "kick4",
@@ -33,7 +33,7 @@
                 "status": "stopped",
                 "startColor":"#eb3a3ad6",
                 "stopColor":"#751919bf",
-                "url": "/media/1/kick4.ogg"
+                "url": "/media/1/kick4.mp3"
             },
             {
                 "title": "piano1",
@@ -41,7 +41,7 @@
                 "status": "stopped",
                 "startColor":"#5959f5ed",
                 "stopColor":"#2c2c54eb",
-                "url": "/media/1/piano1.ogg"
+                "url": "/media/1/piano1.mp3"
             },
             {
                 "title": "piano2",
@@ -49,7 +49,7 @@
                 "status": "stopped",
                 "startColor":"#5959f5ed",
                 "stopColor":"#2c2c54eb",
-                "url": "/media/1/piano2.ogg"
+                "url": "/media/1/piano2.mp3"
             },
             {
                 "title": "piano3",
@@ -57,7 +57,7 @@
                 "status": "stopped",
                 "startColor":"#5959f5ed",
                 "stopColor":"#2c2c54eb",
-                "url": "/media/1/piano3.ogg"
+                "url": "/media/1/piano3.mp3"
             },
             {
                 "title": "piano4",
@@ -65,7 +65,7 @@
                 "status": "stopped",
                 "startColor":"#5959f5ed",
                 "stopColor":"#2c2c54eb",
-                "url": "/media/1/piano4.ogg"
+                "url": "/media/1/piano4.mp3"
             },
             {
                 "title": "brass1",
@@ -73,7 +73,7 @@
                 "status": "stopped",
                 "startColor":"#cb892b",
                 "stopColor":"#7c5113c9",
-                "url": "/media/1/brass1.ogg"
+                "url": "/media/1/brass1.mp3"
             },
             {
                 "title": "brass2",
@@ -81,7 +81,7 @@
                 "status": "stopped",
                 "startColor":"#cb892b",
                 "stopColor":"#7c5113c9",
-                "url": "/media/1/brass2.ogg"
+                "url": "/media/1/brass2.mp3"
             },
             {
                 "title": "brass3",
@@ -89,7 +89,7 @@
                 "status": "stopped",
                 "startColor":"#cb892b",
                 "stopColor":"#7c5113c9",
-                "url": "/media/1/brass3.ogg"
+                "url": "/media/1/brass3.mp3"
             },
             {
                 "title": "brass4",
@@ -97,7 +97,7 @@
                 "status": "stopped",
                 "startColor":"#cb892b",
                 "stopColor":"#7c5113c9",
-                "url": "/media/1/brass4.ogg"
+                "url": "/media/1/brass4.mp3"
             },
             {
                 "title": "fx1",
@@ -105,7 +105,7 @@
                 "status": "stopped",
                 "startColor":"#2caf91",
                 "stopColor":"#166f5bc9",
-                "url": "/media/1/fx1.ogg"
+                "url": "/media/1/fx1.mp3"
             },
             {
                 "title": "fx2",
@@ -113,7 +113,7 @@
                 "status": "stopped",
                 "startColor":"#2caf91",
                 "stopColor":"#166f5bc9",
-                "url": "/media/1/fx2.ogg"
+                "url": "/media/1/fx2.mp3"
             },
             {
                 "title": "vocal1",
@@ -121,7 +121,7 @@
                 "status": "stopped",
                 "startColor":"#da2d68",
                 "stopColor":"#721132",
-                "url": "/media/1/fx3.ogg"
+                "url": "/media/1/fx3.mp3"
             },
             {
                 "title": "vocal2",
@@ -129,7 +129,7 @@
                 "status": "stopped",
                 "startColor":"#da2d68",
                 "stopColor":"#721132",
-                "url": "/media/1/fx4.ogg"
+                "url": "/media/1/fx4.mp3"
             }
         ]
     },
@@ -143,7 +143,7 @@
                 "status": "stopped",
                 "startColor":"#eb3a3ad6",
                 "stopColor":"#751919bf",
-                "url": "/media/2/kick1.ogg"
+                "url": "/media/2/kick1.mp3"
             },
             {
                 "title": "kick2",
@@ -151,7 +151,7 @@
                 "status": "stopped",
                 "startColor":"#eb3a3ad6",
                 "stopColor":"#751919bf",
-                "url": "/media/2/kick2.ogg"
+                "url": "/media/2/kick2.mp3"
             },
             {
                 "title": "kick3",
@@ -159,7 +159,7 @@
                 "status": "stopped",
                 "startColor":"#eb3a3ad6",
                 "stopColor":"#751919bf",
-                "url": "/media/2/kick3.ogg"
+                "url": "/media/2/kick3.mp3"
             },
             {
                 "title": "kick4",
@@ -167,7 +167,7 @@
                 "status": "stopped",
                 "startColor":"#eb3a3ad6",
                 "stopColor":"#751919bf",
-                "url": "/media/2/kick4.ogg"
+                "url": "/media/2/kick4.mp3"
             },
             {
                 "title": "bass1",
@@ -175,7 +175,7 @@
                 "status": "stopped",
                 "startColor":"#5959f5ed",
                 "stopColor":"#2c2c54eb",
-                "url": "/media/2/bass1.ogg"
+                "url": "/media/2/bass1.mp3"
             },
             {
                 "title": "bass2",
@@ -183,7 +183,7 @@
                 "status": "stopped",
                 "startColor":"#5959f5ed",
                 "stopColor":"#2c2c54eb",
-                "url": "/media/2/bass2.ogg"
+                "url": "/media/2/bass2.mp3"
             },
             {
                 "title": "bass3",
@@ -191,7 +191,7 @@
                 "status": "stopped",
                 "startColor":"#5959f5ed",
                 "stopColor":"#2c2c54eb",
-                "url": "/media/2/bass3.ogg"
+                "url": "/media/2/bass3.mp3"
             },
             {
                 "title": "bass4",
@@ -199,7 +199,7 @@
                 "status": "stopped",
                 "startColor":"#5959f5ed",
                 "stopColor":"#2c2c54eb",
-                "url": "/media/2/bass4.ogg"
+                "url": "/media/2/bass4.mp3"
             },
             {
                 "title": "synth1",
@@ -207,7 +207,7 @@
                 "status": "stopped",
                 "startColor":"#cb892b",
                 "stopColor":"#7c5113c9",
-                "url": "/media/2/synth1.ogg"
+                "url": "/media/2/synth1.mp3"
             },
             {
                 "title": "synth2",
@@ -215,7 +215,7 @@
                 "status": "stopped",
                 "startColor":"#cb892b",
                 "stopColor":"#7c5113c9",
-                "url": "/media/2/synth2.ogg"
+                "url": "/media/2/synth2.mp3"
             },
             {
                 "title": "synth3",
@@ -223,7 +223,7 @@
                 "status": "stopped",
                 "startColor":"#cb892b",
                 "stopColor":"#7c5113c9",
-                "url": "/media/2/synth3.ogg"
+                "url": "/media/2/synth3.mp3"
             },
             {
                 "title": "synth4",
@@ -231,7 +231,7 @@
                 "status": "stopped",
                 "startColor":"#cb892b",
                 "stopColor":"#7c5113c9",
-                "url": "/media/2/synth4.ogg"
+                "url": "/media/2/synth4.mp3"
             },
             {
                 "title": "fx1",
@@ -240,7 +240,7 @@
                 "loopEnd":"00:64",
                 "startColor":"#2caf91",
                 "stopColor":"#166f5bc9",
-                "url": "/media/2/fx1.ogg"
+                "url": "/media/2/fx1.mp3"
             },
             {
                 "title": "fx2",
@@ -248,7 +248,7 @@
                 "status": "stopped",
                 "startColor":"#2caf91",
                 "stopColor":"#166f5bc9",
-                "url": "/media/2/fx2.ogg"
+                "url": "/media/2/fx2.mp3"
             },
             {
                 "title": "pad2",
@@ -256,7 +256,7 @@
                 "status": "stopped",
                 "startColor":"#da2d68",
                 "stopColor":"#721132",
-                "url": "/media/2/pad2.ogg"
+                "url": "/media/2/pad2.mp3"
             },
             {
                 "title": "pad1",
@@ -264,7 +264,7 @@
                 "status": "stopped",
                 "startColor":"#da2d68",
                 "stopColor":"#721132",
-                "url": "/media/2/pad1.ogg"
+                "url": "/media/2/pad1.mp3"
             }
         ]
     }
