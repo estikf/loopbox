@@ -25,9 +25,8 @@ export const PlayersTable = ({ players, bpm, id }) => {
     const playerQueue = useRef([]);
     
     Transport.bpm.value = bpm;
-
+    unmuteIosAudio()
     useEffect(() => {
-        unmuteIosAudio()
         dispatch(loadPlayers({players:loopkits[id].loops}))
 
         Transport.scheduleRepeat((time) => {
