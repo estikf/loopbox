@@ -15,8 +15,8 @@ export const coreSlice = createSlice({
     loadPlayers: (state, action) => {
         state.players = action.payload.players
     },
-    startContext: (state,action) => {
-        state.context.isStarted = false
+    startReduxContext: (state,action) => {
+        state.context.isStarted = true
     },
     startButtonState: (state, action) => {
         // update the state of the button as playing
@@ -39,11 +39,12 @@ export const coreSlice = createSlice({
     },
     resetPlayers: (state,action) => {
         state.players = initialState.players
+        state.context.isStarted = false
     }
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { startButtonState, stopButtonState, queuedButtonState, startContext, loadPlayers, resetPlayers } = coreSlice.actions
+export const { startButtonState, stopButtonState, queuedButtonState, startReduxContext, loadPlayers, resetPlayers } = coreSlice.actions
 
 export default coreSlice.reducer

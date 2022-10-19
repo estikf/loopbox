@@ -1,14 +1,16 @@
 import {Box, Button,Typography} from '@mui/material';
 import {PlayCircle, StopCircle} from '@mui/icons-material/';
 import { useSelector } from 'react-redux';
+import * as Tone from 'tone'
 
 export const PlayerButton = ({context, startContext, startPlayer, addToQueue, stopPlayer, parent, title, startColor, stopColor}) => { 
 
     const button = useSelector(state => state.core.players.find(i => i.title === title))
 
-    const handleOnClick = () => {
-      if(!context.isPlaying){
-        startContext()
+    const handleOnClick = async () => {
+      if(!context.isStarted){
+        Tone.context.resume();
+        await startContext()
       }
 
       if(button.status === "queued"){return;}

@@ -8,9 +8,12 @@ import {
     queuedButtonState,
     resetPlayers,
     startButtonState,
+    startReduxContext,
     stopButtonState,
 } from "../../features/coreSlice";
 import loopkits from '../../helpers/loopkits.json'
+import { InvisibleAudio } from "./InvisibleAudio";
+import unmuteIosAudio from "unmute-ios-audio";
 
 const Transport = Tone.Transport;
 
@@ -24,7 +27,7 @@ export const PlayersTable = ({ players, bpm, id }) => {
     Transport.bpm.value = bpm;
 
     useEffect(() => {
-
+        unmuteIosAudio()
         dispatch(loadPlayers({players:loopkits[id].loops}))
 
         Transport.scheduleRepeat((time) => {
@@ -44,17 +47,18 @@ export const PlayersTable = ({ players, bpm, id }) => {
     }, [id]);
 
     const startContext = async () => {
+        var sound = document.getElementById("invisibleSound")
+        sound.play()
         await Tone.start();
         Transport.start();
+        await dispatch(startReduxContext())
     };
 
     const startPlayer = async (parent, title, loopEnd) => {
-        if (!context.isStarted) {
-            startContext();
-        }
 
         if (Tone.context.state !== "running") {
             Tone.context.resume();
+            await Tone.start();
         }
 
         const group = players.filter((i) => i.parent === parent);
@@ -78,15 +82,15 @@ export const PlayersTable = ({ players, bpm, id }) => {
         dispatch(startButtonState({ parent: parent, title: title }));
     };
 
-    const stopPlayer = async (title) => {
+    const stopPlayer = (title) => {
         const button = players.find((i) => i.title === title).loop;
-        await button.unsync().stop();
-        await dispatch(stopButtonState({ title: title }));
+        button.unsync().stop();
+        dispatch(stopButtonState({ title: title }));
     };
 
-    const addToQueue = async (callback, title) => {
-        (await callback) && playerQueue.current.push(callback);
-        await dispatch(queuedButtonState({ title: title }));
+    const addToQueue = (callback, title) => {
+        (callback) && playerQueue.current.push(callback);
+        dispatch(queuedButtonState({ title: title }));
     };
 
     const chunkArray = (array, size) => {
@@ -108,6 +112,7 @@ export const PlayersTable = ({ players, bpm, id }) => {
             flexDirection="row"
             height={"100%"}
         >
+            <InvisibleAudio/>
             {chunkArray(players, 4).map((group, index) => (
                 <Grid item key={index}>
                     <Grid
@@ -122,6 +127,7 @@ export const PlayersTable = ({ players, bpm, id }) => {
                             group.map((player, index) => (
                                 <Grid item xs={12} key={index}>
                                     <PlayerButton
+                                        playInvisibleAudio
                                         title={player.title}
                                         parent={player.parent}
                                         startColor={player.startColor}
