@@ -1,6 +1,6 @@
+import ResponsiveAppBar from "./components/Appbar/Appbar";
 import { Container } from "@mui/system";
 import { Routes } from "./components/Routes";
-import ResponsiveAppBar from "./components/Appbar/Appbar";
 import { Box } from "@mui/material";
 
 function App() {

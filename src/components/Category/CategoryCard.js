@@ -1,30 +1,37 @@
-import {
-    Card,
-    CardMedia,
-    Typography,
-    useTheme,
-} from "@mui/material";
+import { Card, CardMedia, Typography, useTheme } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
 import { useHistory } from "react-router-dom";
 
-export const CategoryCard = ({ id, title, subheader, imgURL, description, artist, bgColor }) => {
+export const CategoryCard = ({
+    id,
+    title,
+    imgURL,
+    description,
+    artist,
+    bgColor,
+}) => {
     const theme = useTheme();
-    const history = useHistory()
+    const history = useHistory();
+
+    const cardStyle = {
+        borderRadius: "1rem",
+        backgroundColor: bgColor ? bgColor : "#0c2461",
+        transition: "0.5s ease all",
+        ":hover": {
+            cursor: "pointer",
+            backgroundColor: "#2c53a8",
+        }
+    }
+
+    const handleOnClick = () => {
+        history.push(`/${id}`);
+    }
 
     return (
-        <Card 
+        <Card
             elevation={3}
-            sx={{
-                borderRadius: "1rem",
-                backgroundColor: bgColor ? bgColor : "#0c2461",
-                transition:"0.5s ease all",
-                ":hover":{
-                    cursor:"pointer",
-                    backgroundColor: "#2c53a8",
-                }
-            }}
-            onClick={() => history.push(`/${id}`)}
+            sx={cardStyle}
+            onClick={handleOnClick}
         >
             <Box>
                 <Box>

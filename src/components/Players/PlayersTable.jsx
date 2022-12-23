@@ -14,20 +14,21 @@ import {
 import loopkits from '../../helpers/loopkits.json'
 import { InvisibleAudio } from "./InvisibleAudio";
 import unmuteIosAudio from "unmute-ios-audio";
+import { chunkArray } from "./utils";
 
 const Transport = Tone.Transport;
+unmuteIosAudio()
 
 export const PlayersTable = ({ players, bpm, id }) => {
     const dispatch = useDispatch();
     const context = useSelector((state) => state.core.context);
     const playersInRedux = useSelector((state) => state.core.players);
-    
+    const currentLoopkit = loopkits.loopkits.find(i => i.id === id)
     const playerQueue = useRef([]);
     
     Transport.bpm.value = bpm;
-    unmuteIosAudio()
     useEffect(() => {
-        dispatch(loadPlayers({players:loopkits[id].loops}))
+        dispatch(loadPlayers({players:currentLoopkit.loops}))
 
         Transport.scheduleRepeat((time) => {
             if (playerQueue.current.length > 0) {
@@ -90,15 +91,6 @@ export const PlayersTable = ({ players, bpm, id }) => {
     const addToQueue = (callback, title) => {
         (callback) && playerQueue.current.push(callback);
         dispatch(queuedButtonState({ title: title }));
-    };
-
-    const chunkArray = (array, size) => {
-        let result = [];
-        for (let i = 0; i < array.length; i += size) {
-            let chunk = array.slice(i, i + size);
-            result.push(chunk);
-        }
-        return result;
     };
 
     return (
