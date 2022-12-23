@@ -10,38 +10,39 @@ import {
     startButtonState,
     startReduxContext,
     stopButtonState,
-} from "../../features/coreSlice";
+} from "../../redux/coreSlice";
 import loopkits from '../../helpers/loopkits.json'
 import { InvisibleAudio } from "./InvisibleAudio";
 import unmuteIosAudio from "unmute-ios-audio";
 import { chunkArray } from "./utils";
 
-const Transport = Tone.Transport;
 unmuteIosAudio()
+
+const Transport = Tone.Transport;
+let playerQueue = [];
 
 export const PlayersTable = ({ players, bpm, id }) => {
     const dispatch = useDispatch();
     const context = useSelector((state) => state.core.context);
     const playersInRedux = useSelector((state) => state.core.players);
     const currentLoopkit = loopkits.loopkits.find(i => i.id === id)
-    const playerQueue = useRef([]);
-    
     Transport.bpm.value = bpm;
+
     useEffect(() => {
         dispatch(loadPlayers({players:currentLoopkit.loops}))
 
         Transport.scheduleRepeat((time) => {
-            if (playerQueue.current.length > 0) {
-                playerQueue.current.forEach((i) => i());
+            if (playerQueue.length > 0) {
+                playerQueue.forEach((i) => i());
             }
-            playerQueue.current = [];
+            playerQueue = [];
         }, "00:4");
 
         return () => {
             Transport.stop();
             players.forEach((i) => i.loop.unsync().stop());
             dispatch(resetPlayers());
-            playerQueue.current = [];
+            playerQueue = [];
         };
         // eslint-disable-next-line
     }, [id]);
@@ -51,7 +52,7 @@ export const PlayersTable = ({ players, bpm, id }) => {
         sound.play()
         await Tone.start();
         Transport.start();
-        await dispatch(startReduxContext())
+        dispatch(startReduxContext())
     };
 
     const startPlayer = async (parent, title, loopEnd) => {
@@ -89,9 +90,25 @@ export const PlayersTable = ({ players, bpm, id }) => {
     };
 
     const addToQueue = (callback, title) => {
-        (callback) && playerQueue.current.push(callback);
+        (callback) && playerQueue.push(callback);
         dispatch(queuedButtonState({ title: title }));
     };
+
+    const handleOnClick = async (button, player) => {
+        if (button.status === "queued") {
+            return;
+        }
+        if (!context.isStarted) {
+            Tone.context.resume();
+            await startContext();
+        }
+
+        if (button.status === "stopped") {
+            addToQueue(() => startPlayer(player.parent, player.title, player.loopEnd), player.title);
+        } else {
+            addToQueue(() => stopPlayer(player.title), player.title);
+        }
+    }
 
     return (
         playersInRedux.length === players.length &&
@@ -118,26 +135,8 @@ export const PlayersTable = ({ players, bpm, id }) => {
                             group.map((player, index) => (
                                 <Grid item xs={12} key={index}>
                                     <PlayerButton
-                                        playInvisibleAudio
-                                        title={player.title}
-                                        parent={player.parent}
-                                        startColor={player.startColor}
-                                        stopColor={player.stopColor}
-                                        context={context}
-                                        startContext={() => startContext()}
-                                        addToQueue={(cb) =>
-                                            addToQueue(cb, player.title)
-                                        }
-                                        startPlayer={() =>
-                                            startPlayer(
-                                                player.parent,
-                                                player.title,
-                                                player.loopEnd
-                                            )
-                                        }
-                                        stopPlayer={() =>
-                                            stopPlayer(player.title)
-                                        }
+                                        player={player}
+                                        handleOnClick={(button, player) => handleOnClick(button, player)}
                                     />
                                 </Grid>
                             ))}

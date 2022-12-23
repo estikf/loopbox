@@ -1,5 +1,4 @@
 import { Grid } from "@mui/material";
-import React from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { usePlayers } from "../../helpers/usePlayers";
 import { LoadingBar } from "../LoadingBar";
