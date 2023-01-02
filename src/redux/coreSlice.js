@@ -5,6 +5,7 @@ const initialState = {
         isLoaded: true,
         isStarted: false,
     },
+    id:"",
     players: [],
 };
 
@@ -13,28 +14,24 @@ export const coreSlice = createSlice({
     initialState,
     reducers: {
         loadPlayers: (state, action) => {
+            state.id = action.payload.id;
             state.players = action.payload.players;
         },
         startReduxContext: (state, action) => {
             state.context.isStarted = true;
         },
-        startButtonState: (state, action) => {
-            // update the state of the button as playing
-            state.players.find((i) => i.title === action.payload.title).status = "playing";
-            // update others buttons in the group as "stopped"
-            state.players
-                .filter((i) => i.parent === action.payload.parent)
-                .filter((i) => i.title !== action.payload.title)
-                .forEach((i) => (i.status = "stopped"));
-        },
-        stopButtonState: (state, action) => {
-            // update the started button as true
-            state.players.find((i) => i.title === action.payload.title).status =
-                "stopped";
-        },
-        queuedButtonState: (state, action) => {
-            state.players.find((i) => i.title === action.payload.title).status =
-                "queued";
+        updateButtonState: (state, action) => {
+            if(action.payload.status === "started"){
+                // update the state of the button as started
+                state.players.find((i) => i.title === action.payload.title).status = action.payload.status;
+                // update others buttons in the group as "stopped"
+                state.players
+                    .filter((i) => i.parent === action.payload.parent)
+                    .filter((i) => i.title !== action.payload.title)
+                    .forEach((i) => (i.status = "stopped"));
+            }else{
+                state.players.find((i) => i.title === action.payload.title).status = action.payload.status;
+            }
         },
         resetPlayers: (state, action) => {
             state.players = initialState.players;
@@ -45,9 +42,7 @@ export const coreSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 export const {
-    startButtonState,
-    stopButtonState,
-    queuedButtonState,
+    updateButtonState,
     startReduxContext,
     loadPlayers,
     resetPlayers,

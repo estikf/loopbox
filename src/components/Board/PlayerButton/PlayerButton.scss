@@ -1,0 +1,68 @@
+$large-phone: 700px;
+$medium-phone: 440px;
+$small-phone: 380px;
+
+.player {
+    &-button {
+        border-radius: 15% !important;
+        border: none;
+        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        width: 8rem;
+        height: 8rem;
+        min-width: 2rem !important;
+        min-height: 2rem !important;
+
+        &-text {
+            font-size: 0.8rem !important;
+        }
+    }
+
+    &-text {
+        font-size: 0.8rem !important;
+        color: rgba(239, 239, 239, 0.907) !important;
+    }
+
+    &-icon {
+        font-size: 3.4rem !important;
+    }
+
+    @media screen and (max-width: $large-phone) {
+        &-button {
+            --widthScreen: calc(100vw - 60px);
+            --widthButton: calc(var(--widthScreen) / 4);
+            width: var(--widthButton);
+            height: 8rem;
+        }
+
+        &-text {
+            font-size: 0.8rem !important;
+        }
+
+        &-icon {
+            font-size: 3.2rem !important;
+        }
+    }
+
+    @media screen and (max-width: $medium-phone) {
+        &-button {
+            height: 6.5rem;
+        }
+
+        &-text {
+            font-size: 0.7rem !important;
+        }
+
+        &-icon {
+            font-size: 2.5rem !important;
+        }
+    }
+
+    @media screen and (max-width: $small-phone) {
+        &-icon {
+            font-size: 2.3rem !important;
+        }
+    }
+}

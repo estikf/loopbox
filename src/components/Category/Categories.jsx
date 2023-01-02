@@ -1,4 +1,4 @@
-import loopkits from '../../helpers/loopkits.json'
+import loopkits from '../../data/loopkits.json'
 import { Grid } from "@mui/material";
 import { CategoryCard } from "./CategoryCard";
 
@@ -14,7 +14,7 @@ export const Categories = () => {
         >
             <Grid item xs={12}>
                 <Grid container justifyContent={"center"} spacing={2}>
-                    {loopkits.loopkits.map((i) => (
+                    {loopkits.list.map((i) => (
                         <Grid 
                             key={i.id}
                             item xs={12} 

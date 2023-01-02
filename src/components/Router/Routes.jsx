@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { Categories } from './Category/Categories'
-import { Players } from './Players/Players'
+import { Categories } from '../Category/Categories'
+import { BoardWrapper } from '../Board/BoardWrapper'
 
 export const Routes = () => {
   return (
@@ -13,7 +13,7 @@ export const Routes = () => {
             <Categories/>
         </Route>
         <Route path="/:id">
-            <Players/>
+            <BoardWrapper/>
         </Route>
     </Switch>
   )

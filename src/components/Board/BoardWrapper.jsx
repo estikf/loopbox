@@ -1,19 +1,20 @@
 import { Grid } from "@mui/material";
 import { useHistory, useParams } from "react-router-dom";
-import { usePlayers } from "../../helpers/usePlayers";
-import { LoadingBar } from "../LoadingBar";
-import { PlayersTable } from "./PlayersTable";
-import loopkits from "../../helpers/loopkits.json";
+import { usePlayers } from "../../utils/usePlayers";
+import { LoadingBar } from "../Shared/LoadingBar";
+import { Board } from "./Board";
+import loopkits from "../../data/loopkits.json";
 
-export const Players = () => {
+export const BoardWrapper = () => {
     const history = useHistory();
     const { id } = useParams();
-    const currentLoopkit = loopkits.loopkits.find((i) => i.id === id);
-    const [players, bpm, loadingProgress] = usePlayers(id);
-    const isLoading = !(Math.round(loadingProgress) === 100);
-
+    const currentLoopkit = loopkits.list.find((i) => i.id === id);
+    
     // return to the homepage if there is no loopkit with that id
     !currentLoopkit && history.push("/");
+    
+    const [players, bpm, loadingProgress, handleOnClick] = usePlayers(id);
+    const isLoading = !(loadingProgress === 100);
 
     return (
         <Grid
@@ -28,10 +29,11 @@ export const Players = () => {
                         loadingProgress={loadingProgress}
                     />
                 ) : (
-                    <PlayersTable
+                    <Board
                         id={id}
                         bpm={bpm} 
                         players={players}
+                        handleOnClick={(button, player) => handleOnClick(button, player)}
                     /> 
                 )}
             </Grid>

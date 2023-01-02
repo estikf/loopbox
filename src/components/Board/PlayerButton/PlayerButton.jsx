@@ -1,18 +1,18 @@
-import { Box, Button, CircularProgress, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { PauseCircle, PlayCircle } from "@mui/icons-material/";
 import { useSelector } from "react-redux";
+import './PlayerButton.scss'
 
 export const PlayerButton = ({
     handleOnClick,
     player
 }) => {
-
     const button = useSelector((state) => state.core.players.find((i) => i.title === player.title));
     const styles = {
         status:{
-            "playing":<PauseCircle className="button-icon" />,
-            "stopped":<PlayCircle className="button-icon" />,
-            "queued":<CircularProgress variant="indeterminate" color="inherit" className="button-icon"/>,
+            "started":<PauseCircle className="player-icon" />,
+            "stopped":<PlayCircle className="player-icon" />,
+            "queued":<PlayCircle className="player-icon" />,
         },
         backgroundColor:{
             "queued":{
@@ -20,9 +20,9 @@ export const PlayerButton = ({
                 MozAnimation: "glowing 1000ms infinite",
                 Oanimation: "glowing 1000ms infinite",
                 animation: "glowing 1000ms infinite",
-                backgroundColor: `${player.stopColor} !important`,
+                backgroundColor: `${player.startColor} !important`,
             },
-            "playing":{ backgroundColor: `${player.startColor} !important` },
+            "started":{ backgroundColor: `${player.startColor} !important` },
             "stopped":{ backgroundColor: `${player.stopColor} !important` }
         }
     }
