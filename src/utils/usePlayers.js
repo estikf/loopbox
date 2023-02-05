@@ -13,7 +13,6 @@ const Transport = Tone.Transport;
 
 export const usePlayers = (id) => {
     const [loadedLoops, setLoadedLoops] = useState(0);
-    const [loopStep, setLoopStep] = useState(0)
     const loopkit = loopkits.list.find((i) => i.id === id);
     const loadingProgress = Math.round(
         (loadedLoops * 100) / loopkit.loops.length
