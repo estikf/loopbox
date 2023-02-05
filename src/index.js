@@ -11,7 +11,7 @@ import { BrowserTracing } from "@sentry/tracing";
 const SENTRY_DSN = process.env.REACT_APP_SENTRY_DSN
 if(SENTRY_DSN){
     Sentry.init({
-        dsn: "https://a1c0539c1a7b43958d193a31dba88cfb@o4504001156481024.ingest.sentry.io/4504001157595136",
+        dsn: SENTRY_DSN,
         integrations: [new BrowserTracing()],
         tracesSampleRate: 1.0,
       });    
