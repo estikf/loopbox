@@ -7,7 +7,7 @@
             "title": "House",
             "artist": "Furkan Estik",
             "description": "Feel the summer",
-            "img": "https://ae01.alicdn.com/kf/HTB1yx1ZSXXXXXaIXFXXq6xXFXXX8/MoonEmbassy-Alto-Saksafon-Minyat-r-Ekran-Sax-Modeli-Ger-ek-i-M-zik-Sevgilisi-do-um.jpg_Q90.jpg_.webp",
+            "img": "/media/images/sax.webp",
             "loops": [
                 {
                     "title": "kick1",
@@ -146,7 +146,7 @@
             "title": "Melodic Techno",
             "artist": "Furkan Estik",
             "description": "Deep inspirational vibes",
-            "img": "https://revox.com/media/image/12/60/0e/Revox-Plattenspieler-STUDIOMASTER-T700-turntable-aufmacher.jpg",
+            "img": "/media/images/turntable.jpg",
             "loops": [
                 {
                     "title": "kick1",
