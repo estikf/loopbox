@@ -2,6 +2,19 @@ import { CircularProgress, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 
+const styles = {
+    loadingProgressBox:{
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0,
+        position: 'absolute',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    }
+}
+
 export const LoadingBar = ({ loadingProgress }) => {
     return (
         <Grid container spacing={3} justifyContent="center" alignItems={"center"}>
@@ -14,16 +27,7 @@ export const LoadingBar = ({ loadingProgress }) => {
                         size={"4rem"}
                     />
                     <Box
-                        sx={{
-                        top: 0,
-                        left: 0,
-                        bottom: 0,
-                        right: 0,
-                        position: 'absolute',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        }}
+                        sx={styles.loadingProgressBox}
                     >
                         <Typography variant="caption" component="div" color="white">
                             {`${Math.round(loadingProgress)}%`}
